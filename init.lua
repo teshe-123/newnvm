@@ -1,1 +1,2 @@
-require('lua.teshe.lazy')
+require('teshe.lazy')
+
