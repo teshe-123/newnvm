@@ -7,14 +7,12 @@ return {
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
   },
   config = function()
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")
 
-    local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -45,14 +43,15 @@ return {
         { name = "path" }, -- file system paths
       }),
       formatting = {
- fields = {'abbr', 'menu', 'kind'},
-    format = function(entry, item)
+     fields = {'abbr', 'menu', 'kind'},
+      format = function(entry, item)
       local n = entry.source.name
       if n == 'nvim_lsp' then
         item.menu = '[LSP]'
       elseif n == 'nvim_lua'  then
         item.menu = '[nvim]'
-      
+      elseif n == 'luasnip' then
+            item.menu = 'snippet'
       else
         item.menu = string.format('[%s]', n)
       end
