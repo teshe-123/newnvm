@@ -51,7 +51,7 @@ return {
       elseif n == 'nvim_lua'  then
         item.menu = '[nvim]'
       elseif n == 'luasnip' then
-            item.menu = 'snippet'
+            item.menu = '[snippet]'
       else
         item.menu = string.format('[%s]', n)
       end
