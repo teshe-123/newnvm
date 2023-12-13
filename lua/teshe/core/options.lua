@@ -5,8 +5,8 @@ opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
