@@ -12,4 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-require("lazy").setup('teshe.plugins')
+require("lazy").setup({{ import = "teshe.plugins" }, { import = "teshe.plugins.lsp" }, {import = "teshe.plugins.lsp"}})
+
+
