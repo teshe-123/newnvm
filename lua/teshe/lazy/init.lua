@@ -11,7 +11,4 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-require("lazy").setup({{ import = "teshe.plugins" }, { import = "teshe.plugins.lsp" }, {import = "teshe.plugins.lsp"}})
-
-
+require("lazy").setup({ { import = "teshe.plugins.lsp" }, { import = "teshe.plugins.git" }, { import = "teshe.plugins.editor" } })
