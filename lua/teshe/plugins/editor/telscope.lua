@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     local telescope = require("telescope")
@@ -14,7 +15,8 @@ return {
         path_display = { "truncate " },
         mappings = {
           i = {
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
+            ["<C-j>"] = actions.move_selection_next,     -- move to next result
           },
         },
       },

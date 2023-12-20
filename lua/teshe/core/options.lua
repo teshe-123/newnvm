@@ -1,7 +1,7 @@
 local opt = vim.opt -- for conciseness
-
+vim.opt.guicursor = ""
 -- line numbers
-opt.relativenumber = true -- show relative line numbers
+
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
@@ -12,8 +12,12 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+vim.opt.swapfile = false
+vim.opt.backup = false
+
 -- line wrapping
 opt.wrap = false -- disable line wrapping
+vim.opt.scrolloff = 8
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -35,7 +39,6 @@ vim.opt.swapfile = false
 vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
 vim.opt.hlsearch = false
-vim.opt.updatetime = 50
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
