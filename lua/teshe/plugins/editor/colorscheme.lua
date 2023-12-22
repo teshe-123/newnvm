@@ -7,8 +7,9 @@ return {
 		local colors = color.get_preloaded_colors()
 		require("onedarkpro").setup({
 			highlights = {
+				TermCursor = { bg = "#cccccc" }, -- cursor in a focused terminal
+				TermCursorNC = { bg = "none" },
 				BufferLineOffsetSeparator = { link = "VertSplit" },
-				BufferLineIndicatorSelected = { link = "VertSplit" },
 			},
 			options = {
 				cursorline = false, -- Use cursorline highlighting?

@@ -2,10 +2,11 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "*",
 	event = "VeryLazy",
+
 	keys = {
-		{ "n", "<leader>tl", "<cmd>BufferLineCycleNext<CR>", { desc = "Go to next tab" } },
-		{ "n", "<leader>th", "<cmd>BufferLineCyclePrev<CR>", { desc = "Go to previous tab" } },
-		{ "n", "<leader>tx", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close other tabs" } },
+		{ "<leader>tl", "<cmd>BufferLineCycleNext<CR>", desc = "Go to next tab" },
+		{ "<leader>th", "<cmd>BufferLineCyclePrev<CR>", desc = "Go to previous tab" },
+		{ "<leader>tx", "<cmd>BufferLineCloseOthers<CR>", desc = "Close other tabs" },
 	},
 
 	config = function()
