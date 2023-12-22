@@ -65,7 +65,6 @@ return {
 				"cssls",
 				"tailwindcss",
 				"lua_ls",
-				"emmet_ls",
 			},
 		})
 		require("mason-tool-installer").setup({
