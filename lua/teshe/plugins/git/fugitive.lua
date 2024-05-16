@@ -7,6 +7,7 @@ return {
 				vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 			end,
 		},
+
 		{
 			"lewis6991/gitsigns.nvim",
 			event = { "BufReadPre", "BufNewFile" },

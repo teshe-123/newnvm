@@ -22,11 +22,8 @@ return {
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
-
 		cmp.setup({
-			completion = {
-				completeopt = "menu,menuone,preview,noselect",
-			},
+			completion = { completeopt = "menu,menuone,preview,noselect" },
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -40,17 +37,19 @@ return {
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
 				["<C-e>"] = cmp.mapping.abort(), -- close completion window
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping(function(fallback)
-					-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-					-- that way you will only jump inside the snippet region
-					if luasnip.expand_or_locally_jumpable() then
-						luasnip.expand_or_jump()
-					elseif has_words_before() then
-						cmp.complete()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
+				["<Tab>"] = cmp.mapping(
+					function(fallback) -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+						-- that way you will only jump inside the snippet region
+						if luasnip.locally_jumpable() then
+							luasnip.expand_or_jump()
+						-- elseif has_words_before() then
+						-- 	cmp.complete()
+						else
+							fallback()
+						end
+					end,
+					{ "i", "s" }
+				),
 
 				["<S-Tab>"] = cmp.mapping(function(fallback)
 					if luasnip.jumpable(-1) then
@@ -66,10 +65,12 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
-				{ name = "path" }, -- file system paths
+				-- { name = "path" }, -- file system paths
 			}),
+
 			formatting = {
 				fields = { "abbr", "menu", "kind" },
+				-- expandable_indicator = true,
 				format = function(entry, item)
 					local n = entry.source.name
 					if n == "nvim_lsp" then
